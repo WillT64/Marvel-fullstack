@@ -1,0 +1,112 @@
+.character-sheet--page {
+  width: 88vw;
+
+  margin: auto;
+
+  h1 {
+    margin: 32px;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.character-sheet--container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.character-sheet--title {
+  display: flex;
+  justify-content: center;
+
+  position: sticky;
+  top: 64px;
+  background: white;
+}
+
+.character-sheet--comics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  order: 2;
+
+  flex: 7;
+
+  padding: 16px;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.character-sheet--comics-list {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 100%;
+
+  flex-wrap: wrap;
+}
+
+.character-sheet--comics-item {
+  display: flex;
+
+  height: 400px;
+  width: 200px;
+
+  margin: 16px;
+
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.character-sheet--infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: sticky;
+  top: 144px;
+
+  order: 1;
+  // height: 640px;
+  flex: 2;
+  max-width: 333px;
+
+  padding: 16px;
+
+  border: solid 1px red;
+  border-radius: 5px;
+  box-shadow: rgb(240 46 46 / 40%) -5px 5px, rgb(240 46 46 / 30%) -10px 10px,
+    rgb(240 46 46 / 20%) -15px 15px, rgb(240 46 46 / 10%) -20px 20px,
+    rgb(240 46 46 / 5%) -25px 25px;
+}
+
+.character-sheet--image {
+  flex: 1;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    border-radius: 5px;
+  }
+}
+
+.character-sheet--description {
+  flex: 3;
+
+  margin-top: 16px;
+
+  font-weight: 500;
+}

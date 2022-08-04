@@ -1,0 +1,21 @@
+.comic--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.comic--title {
+  display: flex;
+  align-items: center;
+  flex: 2;
+
+  text-align: center;
+}
+
+.comic--image {
+  flex: 6;
+}
