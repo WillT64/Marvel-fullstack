@@ -11,7 +11,7 @@ const ComicPage = () => {
     const fetchCharacterAndComics = async () => {
       try {
         const response = await axios.get(
-          `https://exo-marvel-backend.herokuapp.com//comic/${id}`
+          `https://exo-marvel-backend.herokuapp.com/comic/${id}`
         );
         setComic(response.data);
         setIsLoading(false);

@@ -16,7 +16,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://exo-marvel-backend.herokuapp.com//characters"
+          "https://exo-marvel-backend.herokuapp.com/characters"
         );
         console.log(response.data);
         setCharacters(response.data);
@@ -33,7 +33,7 @@ const Characters = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          "https://exo-marvel-backend.herokuapp.com//characters",
+          "https://exo-marvel-backend.herokuapp.com/characters",
           {
             params: filter,
           }
