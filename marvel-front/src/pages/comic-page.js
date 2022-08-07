@@ -10,7 +10,9 @@ const ComicPage = () => {
   useEffect(() => {
     const fetchCharacterAndComics = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/comic/${id}`);
+        const response = await axios.get(
+          `https://exo-marvel-backend.herokuapp.com//comic/${id}`
+        );
         setComic(response.data);
         setIsLoading(false);
       } catch (error) {

@@ -15,7 +15,9 @@ const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/characters");
+        const response = await axios.get(
+          "https://exo-marvel-backend.herokuapp.com//characters"
+        );
         console.log(response.data);
         setCharacters(response.data);
         setIsLoading(false);
@@ -30,9 +32,12 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://localhost:4000/characters", {
-          params: filter,
-        });
+        const response = await axios.get(
+          "https://exo-marvel-backend.herokuapp.com//characters",
+          {
+            params: filter,
+          }
+        );
         console.log(response.data);
         setCharacters(response.data);
         setIsLoading(false);

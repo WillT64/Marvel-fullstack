@@ -13,7 +13,9 @@ const Comics = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/comics");
+        const response = await axios.get(
+          "https://exo-marvel-backend.herokuapp.com//comics"
+        );
         console.log(response.data);
         setComics(response.data);
         setIsLoading(false);
@@ -27,9 +29,12 @@ const Comics = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/comics", {
-          params: filter,
-        });
+        const response = await axios.get(
+          "https://exo-marvel-backend.herokuapp.com//comics",
+          {
+            params: filter,
+          }
+        );
         console.log(response.data);
         setComics(response.data);
         setIsLoading(false);
