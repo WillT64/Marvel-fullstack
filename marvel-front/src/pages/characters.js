@@ -71,7 +71,7 @@ const Characters = () => {
     return (
       <>
         <div className="input--filter">
-          <label for="name">Nom du héro : </label>{" "}
+          <label for="name">Nom du héro : </label>
           <input
             type="text"
             id="name"
