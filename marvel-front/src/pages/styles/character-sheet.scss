@@ -137,3 +137,11 @@
     margin: 16px;
   }
 }
+
+@media (max-width: 450px) {
+  .character-sheet--infos {
+    flex-direction: column;
+
+    width: 80%;
+  }
+}
