@@ -25,8 +25,16 @@ const ComicPage = () => {
 
   return (
     <div>
-      <h1>ComicPage</h1>
-      <p>{id}</p>
+      {isLoading ? (
+        <>Chargement des données du comic</>
+      ) : (
+        <>
+          <h1>ComicPage</h1>
+          <p>
+            {id} et {comic}
+          </p>
+        </>
+      )}
     </div>
   );
 };
