@@ -35,7 +35,7 @@ const CharacterSheet = () => {
         </div> */}
         <div className="character-sheet--container">
           <div className="character-sheet--comics">
-            <h2>Apparait dans les comics suivants:</h2>
+            {/* <h2>Apparait dans les comics suivants:</h2> */}
             <div className="character-sheet--comics-list">
               {characterAndComics.comics.map((comic, index) => {
                 return (
@@ -48,12 +48,15 @@ const CharacterSheet = () => {
           </div>
 
           <div className="character-sheet--infos">
-            <div>
-              <h2>{characterAndComics.name}</h2>
-            </div>
             <div className="character-sheet--image">
-              <img src={imgSource} alt="hero" />
+              <div>
+                <h2>{characterAndComics.name}</h2>
+              </div>
+              <div>
+                <img src={imgSource} alt="hero" />
+              </div>
             </div>
+
             <div className="character-sheet--description">
               <p>{characterAndComics.description}</p>
             </div>

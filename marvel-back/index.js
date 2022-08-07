@@ -15,7 +15,15 @@ app.get("/characters", async (req, res) => {
   try {
     const filter = Object.keys(req.query)
       .map((elem) => {
-        return `${elem}=${req.query[elem]}`;
+        if (elem === "skip") {
+          if (req.query[elem] < 0) {
+            return "skip=0";
+          } else {
+            return `${elem}=${+req.query[elem] * (+req.query.limit || 0)}`;
+          }
+        } else {
+          return `${elem}=${req.query[elem]}`;
+        }
       })
       .join("&");
 

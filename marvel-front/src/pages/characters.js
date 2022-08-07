@@ -7,8 +7,10 @@ import "./styles/characters.scss";
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const [showFilter, setShowFilter] = useState(false);
-  const [filter, setFilter] = useState({});
+  const [showBtnFilter, setShowBtnFilter] = useState(true);
+  const [filter, setFilter] = useState({ name: "", limit: "100", skip: 0 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +29,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get("http://localhost:4000/characters", {
           params: filter,
         });
@@ -64,6 +67,67 @@ const Characters = () => {
     });
   };
 
+  const showFilters = () => {
+    return (
+      <>
+        <div className="input--filter">
+          <label for="name">Nom du héro : </label>{" "}
+          <input
+            type="text"
+            id="name"
+            placeholder=""
+            onChange={(event) => {
+              let newFilter = { ...filter };
+              newFilter.name = event.target.value;
+              newFilter.skip = 0;
+              setFilter(newFilter);
+            }}
+          />
+        </div>
+        <div className="input--filter">
+          <label for="limit">Limite par page : </label>
+          <input
+            type="number"
+            id="limit"
+            placeholder=""
+            onChange={(event) => {
+              let newFilter = { ...filter };
+              newFilter.limit = event.target.value;
+              setFilter(newFilter);
+            }}
+          />
+        </div>
+      </>
+    );
+  };
+
+  const showPages = () => {
+    return (
+      <div className="page-manager">
+        <span>Page : </span>
+        <button
+          onClick={() => {
+            let newFilter = { ...filter };
+            newFilter.skip = +filter.skip - 1;
+            setFilter(newFilter);
+          }}
+        >
+          -
+        </button>
+        <span>{+filter.skip + 1 || 1}</span>
+        <button
+          onClick={() => {
+            let newFilter = { ...filter };
+            newFilter.skip = +filter.skip + 1;
+            setFilter(newFilter);
+          }}
+        >
+          +
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="characters--page">
       <div className="characters--header">
@@ -71,48 +135,29 @@ const Characters = () => {
           <h1>Personnages</h1>
         </div>
         <div className="characters--header--filters">
-          <button
-            onClick={() => {
-              setShowFilter(!showFilter);
-            }}
-          >
-            Filters
-          </button>
-          {showFilter && (
-            <>
-              <input
-                type="text"
-                placeholder="Nom"
-                onChange={(event) => {
-                  let newFilter = { ...filter };
-                  newFilter.name = event.target.value;
-                  setFilter(newFilter);
-                }}
-              />
-              <input
-                type="number"
-                placeholder="limit"
-                onChange={(event) => {
-                  let newFilter = { ...filter };
-                  newFilter.limit = event.target.value;
-                  setFilter(newFilter);
-                }}
-              />
-              <input
-                type="number"
-                placeholder="page"
-                onChange={(event) => {
-                  let newFilter = { ...filter };
-                  newFilter.skip = event.target.value;
-                  setFilter(newFilter);
-                }}
-              />
-            </>
+          {showBtnFilter && (
+            <button
+              onClick={() => {
+                setShowFilter(!showFilter);
+                setShowBtnFilter(false);
+              }}
+            >
+              Rechercher
+            </button>
           )}
+
+          {showFilter && showFilters()}
         </div>
       </div>
-      <div className="characters--container">
-        {isLoading ? <p>Chargement des personnages...</p> : renderCharacters()}
+      <div className="characters--body">
+        {isLoading ? (
+          <p>Chargement des personnages...</p>
+        ) : (
+          <>
+            <div className="characters--container">{renderCharacters()}</div>
+            {showPages()}
+          </>
+        )}
       </div>
     </div>
   );

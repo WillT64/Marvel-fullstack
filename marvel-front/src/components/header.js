@@ -17,19 +17,16 @@ const Header = () => {
             <button>Comics</button>
           </Link>
         </div>
-        <div className="header--btn">
-          <Link to="/favourites">
-            <button>Favoris</button>
-          </Link>
-        </div>
       </div>
       <div className="header--logo">
         <Link to="/">
           <img src={logoMarvel} alt="marvel" />
         </Link>
       </div>
-      <div>
-        <button>Connexion</button>
+      <div className="header--btn">
+        <Link to="/favourites">
+          <button>Favoris</button>
+        </Link>
       </div>
     </header>
   );

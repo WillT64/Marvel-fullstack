@@ -44,7 +44,7 @@
 
 .character-sheet--comics-list {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 
   width: 100%;
 
@@ -75,7 +75,7 @@
   align-items: center;
 
   position: sticky;
-  top: 144px;
+  top: 96px;
 
   order: 1;
   // height: 640px;
@@ -109,4 +109,31 @@
   margin-top: 16px;
 
   font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .character-sheet--container {
+    flex-direction: column;
+  }
+
+  .character-sheet--infos {
+    flex-direction: row;
+
+    position: initial;
+    top: auto;
+
+    margin: 32px auto;
+    padding: 4px;
+
+    flex: none;
+    max-width: 90%;
+  }
+
+  .character-sheet--image {
+    margin: 16px;
+  }
+
+  .character-sheet--description {
+    margin: 16px;
+  }
 }
